@@ -41,6 +41,8 @@ if (section === 'web') {
     initialSection = 'web-section';
 } else if (section === 'design') {
     initialSection = 'design-section';
+} else if (section === 'next') {
+    initialSection = 'next-section';
 }
 
 // Show initial section without animation
