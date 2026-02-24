@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 800);
         });
     }
+        // ===== Typing effect for intro paragraph =====
+    const introParagraph = document.getElementById('intro-text');
+    if (introParagraph) {
+        const fullText = introParagraph.textContent.trim();
+        introParagraph.textContent = '';
+        let idx = 0;
+        function typeChar() {
+            if (idx < fullText.length) {
+                introParagraph.textContent += fullText.charAt(idx);
+                idx++;
+                setTimeout(typeChar, 50);
+            }
+        }
+        typeChar();
+    }
 });
 
 // ===== Intersection Observer untuk Animasi =====
