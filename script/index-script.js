@@ -390,6 +390,23 @@ document.addEventListener('DOMContentLoaded', function() {
     projectCards.forEach((card) => {
         observer.observe(card);
     });
+
+    // ripple animation for project buttons
+    const projectButtons = document.querySelectorAll('.project-button');
+    projectButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+            ripple.style.left = x - (parseFloat(ripple.style.width)/2) + 'px';
+            ripple.style.top = y - (parseFloat(ripple.style.height)/2) + 'px';
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
 });
 
 // ===== Interactive Contact Form =====
