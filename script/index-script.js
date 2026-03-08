@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 800);
         });
     }
-        // ===== Typing effect for intro paragraph =====
+    
+    // ===== Typing effect for intro paragraph =====
     const introParagraph = document.getElementById('intro-text');
     if (introParagraph) {
         const fullText = introParagraph.textContent.trim();
@@ -159,27 +160,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.textContent = `
         @keyframes pulse {
-            0% {
-                transform: scale(1.05);
-            }
-            50% {
-                transform: scale(1.15);
-            }
-            100% {
-                transform: scale(1.05);
-            }
+            0% { transform: scale(1.05); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1.05); }
         }
-
         @keyframes iconPulse {
-            0% {
-                transform: scale(1) rotate(0deg);
-            }
-            50% {
-                transform: scale(1.15) rotate(5deg);
-            }
-            100% {
-                transform: scale(1.3) rotate(10deg);
-            }
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.15) rotate(5deg); }
+            100% { transform: scale(1.3) rotate(10deg); }
         }
     `;
     document.head.appendChild(style);
@@ -483,232 +471,4 @@ document.addEventListener('DOMContentLoaded', function() {
             label.style.transform = 'translateY(-5px) scale(0.9)';
         }
     });
-
-
-    // Form submission with animation
-    submitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        // Validation
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-
-        if (!name || !email || !message) {
-            showValidationError();
-            return;
-        }
-
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showValidationError('Email tidak valid');
-            return;
-        }
-
-        // Show loading state
-        submitBtn.classList.add('sending');
-        submitBtn.disabled = true;
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Mengirim...';
-
-        // Simulate sending
-        setTimeout(() => {
-            submitBtn.classList.remove('sending');
-            submitBtn.classList.add('success');
-            submitBtn.textContent = '✓ Pesan Terkirim!';
-
-            // Show success message
-            showSuccessMessage(name);
-
-            // Reset form
-            setTimeout(() => {
-                nameInput.value = '';
-                emailInput.value = '';
-                messageInput.value = '';
-
-                // Reset labels
-                inputs.forEach(input => {
-                    const label = input.previousElementSibling;
-                    label.style.color = 'var(--font-color)';
-                    label.style.transform = 'translateY(0) scale(1)';
-                });
-
-                // Reset button
-                submitBtn.classList.remove('success');
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-
-                // Clear char counter
-                const counter = messageInput.nextElementSibling;
-                if (counter && counter.classList.contains('char-counter')) {
-                    counter.textContent = '0/500 karakter';
-                }
-            }, 2000);
-        }, 1500);
-    });
-
-    // Validation error animation
-    function showValidationError(message = 'Silakan isi semua field dengan benar') {
-        const contactMe = document.querySelector('.contact-me');
-        
-        // Shake animation
-        contactMe.style.animation = 'shake 0.5s ease-in-out';
-        setTimeout(() => {
-            contactMe.style.animation = '';
-        }, 500);
-
-        // Show error message
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'validation-error';
-        errorDiv.textContent = '⚠ ' + message;
-        errorDiv.style.cssText = `
-            position: fixed;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ff4d4f;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            font-family: var(--font-primary);
-            font-weight: 600;
-            box-shadow: 0 8px 24px rgba(255, 77, 79, 0.3);
-            animation: slideInDown 0.4s ease-out;
-            z-index: 999;
-        `;
-
-        document.body.appendChild(errorDiv);
-
-        setTimeout(() => {
-            errorDiv.style.animation = 'slideOutUp 0.4s ease-out';
-            setTimeout(() => errorDiv.remove(), 400);
-        }, 3000);
-    }
-
-    // Success message
-    function showSuccessMessage(name) {
-        const successDiv = document.createElement('div');
-        successDiv.className = 'contact-success';
-        successDiv.innerHTML = `
-            <div class="contact-success-icon">✓</div>
-            <h3>Terima kasih, ${name}!</h3>
-            <p>Pesan Anda telah terkirim dengan sukses. Kami akan segera menghubungi Anda.</p>
-        `;
-
-        document.body.appendChild(successDiv);
-
-        setTimeout(() => {
-            successDiv.style.animation = 'scaleOut 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
-            setTimeout(() => successDiv.remove(), 500);
-        }, 3000);
-    }
-
-    // Add shake animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes shake {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            10%, 30%, 50%, 70%, 90% {
-                transform: translateX(-10px);
-            }
-            20%, 40%, 60%, 80% {
-                transform: translateX(10px);
-            }
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-
-        @keyframes slideOutUp {
-            from {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-20px);
-            }
-        }
-
-        @keyframes scaleOut {
-            from {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: translate(-50%, -50%) scale(0.3);
-                opacity: 0;
-            }
-        }
-
-        .char-counter {
-            transition: color 300ms ease;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Social media icon interactive animation
-    const socialIcons = document.querySelectorAll('.social-media-icon i');
-    socialIcons.forEach(icon => {
-        icon.addEventListener('mouseenter', function() {
-            this.style.animation = 'bounce 0.6s ease-in-out';
-        });
-
-        icon.addEventListener('animationend', function() {
-            this.style.animation = '';
-        });
-    });
-
-    // Social media links hover effect
-    const socialLinks = document.querySelectorAll('.social-media-icon a');
-    socialLinks.forEach(link => {
-        link.addEventListener('mouseenter', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const bubble = document.createElement('div');
-            bubble.style.position = 'absolute';
-            bubble.style.left = x + 'px';
-            bubble.style.top = y + 'px';
-            bubble.style.width = '0px';
-            bubble.style.height = '0px';
-            bubble.style.background = 'radial-gradient(circle, rgba(194, 166, 140, 0.3) 0%, transparent 70%)';
-            bubble.style.borderRadius = '50%';
-            bubble.style.pointerEvents = 'none';
-
-            this.style.position = 'relative';
-            this.appendChild(bubble);
-
-            let size = 0;
-            const maxSize = 100;
-            const interval = setInterval(() => {
-                size += 5;
-                bubble.style.width = size + 'px';
-                bubble.style.height = size + 'px';
-                bubble.style.left = (x - size / 2) + 'px';
-                bubble.style.top = (y - size / 2) + 'px';
-
-                if (size >= maxSize) {
-                    clearInterval(interval);
-                    setTimeout(() => bubble.remove(), 200);
-                }
-            }, 15);
-        });
-    });
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 8c61827300077a6598e2d3abbc5476fef5be8782
