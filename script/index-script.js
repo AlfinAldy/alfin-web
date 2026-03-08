@@ -707,4 +707,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 15);
         });
     });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 8c61827300077a6598e2d3abbc5476fef5be8782

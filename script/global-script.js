@@ -63,4 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set initial active link
     updateActiveLink();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 8c61827300077a6598e2d3abbc5476fef5be8782
