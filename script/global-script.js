@@ -64,3 +64,70 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set initial active link
     updateActiveLink();
 });
+
+// ===== Loading Screen =====
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    
+    // Delay for minimum 1.5 seconds to show loading animation
+    setTimeout(function() {
+        loader.classList.add('hidden');
+        
+        // Remove loader from DOM after transition completes
+        setTimeout(function() {
+            loader.style.display = 'none';
+        }, 600);
+    }, 1500);
+});
+
+// ===== Custom Cursor Follower =====
+document.addEventListener('DOMContentLoaded', function() {
+    const cursorFollower = document.getElementById('cursorFollower');
+    
+    // Only run on devices with hover capability
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        // Smooth cursor follow
+        function animateCursor() {
+            const dx = mouseX - cursorX;
+            const dy = mouseY - cursorY;
+            
+            cursorX += dx * 0.15;
+            cursorY += dy * 0.15;
+            
+            cursorFollower.style.left = cursorX + 'px';
+            cursorFollower.style.top = cursorY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        // Add hover effect on interactive elements
+        const hoverElements = document.querySelectorAll('a, button, .project-card, .certificate-card, .skill-item, .social-link');
+        
+        hoverElements.forEach(function(element) {
+            element.addEventListener('mouseenter', function() {
+                cursorFollower.classList.add('hover');
+            });
+            element.addEventListener('mouseleave', function() {
+                cursorFollower.classList.remove('hover');
+            });
+        });
+        
+        // Hide cursor when leaving window
+        document.addEventListener('mouseleave', function() {
+            cursorFollower.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', function() {
+            cursorFollower.style.opacity = '1';
+        });
+    }
+});
