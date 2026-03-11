@@ -131,3 +131,95 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ===== Mouse Trail Particles =====
+document.addEventListener('DOMContentLoaded', function() {
+    const mouseParticles = document.getElementById('mouseParticles');
+    let particleIndex = 0;
+    
+    // Only run on devices with hover capability
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.addEventListener('mousemove', function(e) {
+            // Create particle every few pixels
+            if (particleIndex % 3 === 0) {
+                createMouseParticle(e.clientX, e.clientY);
+            }
+            particleIndex++;
+        });
+    }
+    
+    function createMouseParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'mouse-particle';
+        
+        // Random size variation
+        const size = 4 + Math.random() * 6;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // Random color variation
+        const colors = ['var(--element-color)', 'var(--font-color)', 'var(--secondary-color)'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Position
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        
+        mouseParticles.appendChild(particle);
+        
+        // Remove particle after animation
+        setTimeout(function() {
+            particle.remove();
+        }, 1000);
+    }
+});
+
+// ===== Theme Toggle =====
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+    }
+    
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        if (newTheme === 'light') {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+        
+        updateIcon(newTheme);
+    });
+    
+    function updateIcon(theme) {
+        if (theme === 'dark') {
+            icon.className = 'fa-solid fa-sun';
+        } else {
+            icon.className = 'fa-solid fa-moon';
+        }
+    }
+});
+
+// ===== Parallax Effect =====
+document.addEventListener('DOMContentLoaded', function() {
+    const shapes = document.querySelectorAll('.geometric-shape');
+    
+    window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY;
+        
+        shapes.forEach(function(shape, index) {
+            const speed = (index + 1) * 0.05;
+            shape.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    });
+});
