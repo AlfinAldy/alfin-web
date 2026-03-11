@@ -1,8 +1,4 @@
-// animations.js
-
-// Add your interactive animations and scroll effects here
-
-// Example: Smooth scroll to section
+// Smooth scroll to section
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -13,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Example: Simple fade-in effect on scroll
+// Simple fade-in effect on scroll
 let fadeInElements = document.querySelectorAll('.fade-in');
 
 function handleScroll() {
