@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateActiveLink();
 });
 
-// ===== Loading Screen =====
+// loader animation
 window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
     
@@ -80,7 +80,7 @@ window.addEventListener('load', function() {
     }, 1500);
 });
 
-// ===== Custom Cursor Follower =====
+// cursor element follower
 document.addEventListener('DOMContentLoaded', function() {
     const cursorFollower = document.getElementById('cursorFollower');
     
