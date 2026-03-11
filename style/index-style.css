@@ -274,6 +274,9 @@
 
 [data-theme="dark"] .rainbow {
     background: linear-gradient(90deg, #ff0066, #ff6600, #ffff00, #00ff88, #00ccff, #ff00ff, #ff0066);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 [data-theme="dark"] .hero-picture img {
@@ -723,6 +726,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent;
     animation: rainbowShift 4s linear infinite, slideInWord 0.8s ease-out 0.3s backwards;
 }
 
