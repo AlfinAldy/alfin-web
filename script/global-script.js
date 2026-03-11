@@ -1,4 +1,4 @@
-// ===== Hamburger Menu Toggle =====
+// hamburger menu for mobile
 document.addEventListener('DOMContentLoaded', function() {
     const hamburgerMenu = document.getElementById('hamburgerMenu');
     const navbarMenu = document.querySelector('.navbar-menu');
