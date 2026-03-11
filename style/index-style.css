@@ -1,4 +1,4 @@
-/* ===== Loading Screen ===== */
+/* loader animation */
 .loader-wrapper {
     position: fixed;
     top: 0;
@@ -93,7 +93,7 @@
     }
 }
 
-/* ===== Custom Cursor Follower ===== */
+/* custom cursor following */
 .cursor-follower {
     position: fixed;
     top: 0;
