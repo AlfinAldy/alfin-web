@@ -1,4 +1,4 @@
-// ===== CV Download Handler =====
+// cv download button animation
 document.addEventListener('DOMContentLoaded', function() {
     const cvDownloadBtn = document.getElementById('cvDownloadBtn');
     
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== Typing effect for intro paragraph =====
+    // typing effect for hero section
     const introParagraph = document.getElementById('intro-text');
     if (introParagraph) {
         const fullText = introParagraph.textContent.trim();
