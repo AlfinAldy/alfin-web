@@ -332,6 +332,7 @@ body {
     }
 }
 
+/* responsive for mac */
 @media (max-width: 768px) {
     .sidebar-section {
         width: 100%;
