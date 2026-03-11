@@ -214,15 +214,45 @@
 
 /* ===== Dark Theme ===== */
 [data-theme="dark"] {
-    --primary-color: #1a1a2e;
-    --secondary-color: #16213e;
-    --font-color: #eaeaea;
-    --element-color: #0f3460;
+    --primary-color: #0d0d1a;
+    --secondary-color: #1a1a2e;
+    --font-color: #00ff88;
+    --element-color: #00ccff;
+    --neon-glow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
+    --neon-blue: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+}
+
+[data-theme="dark"] .logo-text {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
 }
 
 [data-theme="dark"] .navbar-global {
-    background: rgba(26, 26, 46, 0.95);
+    background: rgba(13, 13, 26, 0.95);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+[data-theme="dark"] .navbar-menu-link {
+    color: #00ff88;
+}
+
+[data-theme="dark"] .navbar-menu-link:hover {
+    background: rgba(0, 255, 136, 0.15);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+[data-theme="dark"] .navbar-menu-link.active {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+[data-theme="dark"] .hamburger-line {
+    background: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
 }
 
 [data-theme="dark"] .hero-section,
@@ -230,34 +260,240 @@
 [data-theme="dark"] .skills-section,
 [data-theme="dark"] .project-section,
 [data-theme="dark"] .contact-section {
-    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(180deg, #0d0d1a 0%, #1a1a2e 100%);
 }
 
-[data-theme="dark"] .certificate-card,
-[data-theme="dark"] .project-card,
-[data-theme="dark"] .contact-me {
-    background: #1f1f3a;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+[data-theme="dark"] .about-me h1 {
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
-[data-theme="dark"] .skills-box {
-    background: #1f1f3a;
-}
-
-[data-theme="dark"] .certificate-description,
-[data-theme="dark"] .contact-input label {
+[data-theme="dark"] .about-me p {
     color: #aaa;
+}
+
+[data-theme="dark"] .rainbow {
+    background: linear-gradient(90deg, #ff0066, #ff6600, #ffff00, #00ff88, #00ccff, #ff00ff, #ff0066);
+}
+
+[data-theme="dark"] .hero-picture img {
+    box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+}
+
+[data-theme="dark"] .hero-picture img:hover {
+    box-shadow: 0 30px 60px rgba(0, 255, 136, 0.4);
+}
+
+/* Dark mode - Certificate cards with neon */
+[data-theme="dark"] .certificate-card {
+    background: #1a1a2e;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .certificate-card:hover {
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 24px 48px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .certificate-card::before {
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+}
+
+[data-theme="dark"] .certificate-title {
+    color: #00ff88;
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+[data-theme="dark"] .certificate-description {
+    color: #888;
+}
+
+/* Dark mode - Skills with neon */
+[data-theme="dark"] .skills-box {
+    background: #1a1a2e;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+[data-theme="dark"] .skill-item:hover {
+    color: #00ccff;
+    text-shadow: 0 0 10px #00ccff;
+}
+
+[data-theme="dark"] .skill-item img {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.5));
+}
+
+[data-theme="dark"] .skill-item:hover img {
+    filter: drop-shadow(0 0 15px rgba(0, 204, 255, 0.8));
+}
+
+[data-theme="dark"] .skill-item span {
+    color: #00ff88;
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+/* Dark mode - Project cards with neon */
+[data-theme="dark"] .project-card {
+    background: #1a1a2e;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+[data-theme="dark"] .project-card:hover {
+    border-color: #00ccff;
+    box-shadow: 0 0 25px rgba(0, 204, 255, 0.4);
+}
+
+[data-theme="dark"] .project-card i {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+[data-theme="dark"] .project-card:hover i {
+    color: #00ccff;
+    text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff;
+}
+
+[data-theme="dark"] .project-label {
+    color: #00ff88;
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+/* Dark mode - Contact form with neon */
+[data-theme="dark"] .contact-me {
+    background: #1a1a2e;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .contact-input input,
 [data-theme="dark"] .contact-input textarea {
-    background: #1f1f3a;
-    border-color: #333;
-    color: #eaeaea;
+    background: #0d0d1a;
+    border-color: rgba(0, 255, 136, 0.3);
+    color: #00ff88;
 }
 
+[data-theme="dark"] .contact-input input:focus,
+[data-theme="dark"] .contact-input textarea:focus {
+    border-color: #00ccff;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+}
+
+[data-theme="dark"] .contact-input label {
+    color: #00ff88;
+}
+
+[data-theme="dark"] .submit-button {
+    background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+[data-theme="dark"] .submit-button:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.5), 0 8px 20px rgba(0, 204, 255, 0.3);
+}
+
+/* Dark mode - CV Download with neon */
+[data-theme="dark"] .cv-download {
+    background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+}
+
+[data-theme="dark"] .cv-download:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6), 0 16px 32px rgba(0, 204, 255, 0.4);
+}
+
+/* Dark mode - Footer with neon */
 [data-theme="dark"] .footer-section {
-    background: #0f0f1a;
+    background: #0a0a15;
+    border-top: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+[data-theme="dark"] .footer-logo {
+    color: #00ff88;
+    text-shadow: 0 0 15px #00ff88;
+}
+
+[data-theme="dark"] .social-link i {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+[data-theme="dark"] .social-link:hover i {
+    text-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88;
+}
+
+/* Dark mode - Geometric shapes with neon */
+[data-theme="dark"] .geometric-shape {
+    opacity: 0.3;
+}
+
+[data-theme="dark"] .geometric-circle {
+    background: linear-gradient(135deg, #00ff88, #00ccff);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+[data-theme="dark"] .geometric-square {
+    background: linear-gradient(135deg, #00ccff, #00ff88);
+    box-shadow: 0 0 30px rgba(0, 204, 255, 0.3);
+}
+
+[data-theme="dark"] .geometric-triangle {
+    border-bottom-color: #00ff88;
+    filter: drop-shadow(0 0 10px #00ff88);
+}
+
+/* Dark mode - Particles with neon */
+[data-theme="dark"] .particle {
+    background: #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+[data-theme="dark"] .particle:nth-child(2n) {
+    background: #00ccff;
+    box-shadow: 0 0 10px #00ccff;
+}
+
+/* Dark mode - Cursor follower neon */
+[data-theme="dark"] .cursor-dot {
+    background: #00ff88;
+    box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+}
+
+[data-theme="dark"] .cursor-ring {
+    border-color: #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+[data-theme="dark"] .cursor-follower.hover .cursor-ring {
+    border-color: #00ccff;
+    box-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff;
+}
+
+/* Dark mode - Theme toggle neon */
+[data-theme="dark"] .theme-toggle {
+    background: linear-gradient(135deg, #00ff88, #00ccff);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.8), 0 0 40px rgba(0, 204, 255, 0.5);
+}
+
+/* Dark mode - Section title neon */
+[data-theme="dark"] .section-title {
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+[data-theme="dark"] .section-title::after {
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+    box-shadow: 0 0 10px #00ff88;
+}
+
+/* Dark mode - Mouse particles neon */
+[data-theme="dark"] .mouse-particle {
+    background: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
 }
 
 /* ===== Parallax Effects ===== */
