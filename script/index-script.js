@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ===== Intersection Observer untuk Animasi =====
+// intercestion obserever for section animation
 document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
         threshold: 0.3,
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ===== Interactive Skills Section Animation =====
+// ontertactive skill section animation
 document.addEventListener('DOMContentLoaded', function() {
     const skillItems = document.querySelectorAll('.skill-item');
 
