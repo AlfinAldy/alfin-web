@@ -455,7 +455,7 @@
     }
 }
 
-/* Mouse particles - hide on touch devices */
+/* mouse particle hide on no pointer */
 @media (hover: none) and (pointer: coarse) {
     .mouse-particles {
         display: none;
