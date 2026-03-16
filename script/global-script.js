@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ===== Mouse Trail Particles =====
+// following mouse particles
 document.addEventListener('DOMContentLoaded', function() {
     const mouseParticles = document.getElementById('mouseParticles');
     let particleIndex = 0;
