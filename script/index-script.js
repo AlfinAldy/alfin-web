@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ===== Interactive Contact Form =====
+// contact form animation
 document.addEventListener('DOMContentLoaded', function() {
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
