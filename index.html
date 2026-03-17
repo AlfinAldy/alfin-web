@@ -299,14 +299,38 @@
             <div class="particle"></div>
         </div>
         <h2 class="section-title">Contact Me</h2>
-        <div class="contact-me">
-            <form id="contact-form">
-                <input type="text" name="user_name" placeholder="Nama" required><br><br>
-                <input type="email" name="user_email" placeholder="Email" required><br><br>
-                <textarea name="message" placeholder="Pesan" required></textarea><br><br>
-                <button type="submit">Kirim</button>
-            </form>
-        </div>
+<div class="contact-wrapper">
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="contact-input">
+                            <input type="text" id="user_name" name="user_name" required>
+                            <label for="user_name">Nama Lengkap</label>
+                        </div>
+                        <div class="contact-input">
+                            <input type="email" id="user_email" name="user_email" required>
+                            <label for="user_email">Email</label>
+                        </div>
+                        <div class="contact-input">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Pesan Anda</label>
+                        </div>
+                        <button type="submit" class="submit-button">Kirim Pesan</button>
+                    </form>
+                    <div id="form-message"></div>
+                </div>
+                <div class="contact-image">
+                    <img src="assets/foto.png" alt="Contact Photo">
+                    <a href="https://www.instagram.com/alfnldy?igsh=dGZ2N2dpMWFwamky" class="social-badge instagram" target="_blank" aria-label="Instagram">
+                        <i class="fa-brands fa-square-instagram"></i>
+                    </a>
+                    <a href="mailto:alfin.gamedev@gmail.com" class="social-badge email" aria-label="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/AlfinAldy" class="social-badge github" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
     </section>
 
     <!-- footer -->
