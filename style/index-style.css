@@ -1652,7 +1652,7 @@
     max-width: 1200px;
     width: 100%;
     display: flex;
-    gap: 4rem;
+    gap: 10rem;
     align-items: flex-start;
     justify-content: center;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
@@ -1661,10 +1661,12 @@
 .contact-form {
     flex: 1;
     max-width: 500px;
+    max-height: 1500px;
 }
 
 .contact-image {
     flex: 1;
+    padding-top: 150px;
     position: relative;
     max-width: 350px;
 }
@@ -1828,7 +1830,7 @@
 
 .contact-input input,
 .contact-input textarea {
-    width: 100%;
+    width: 80%;
     padding: 1.3rem 1rem 1.3rem 4rem;
     min-height: 56px;
     border: 2px solid rgba(255, 255, 255, 0.2);
