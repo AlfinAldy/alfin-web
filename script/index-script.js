@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const percentageEl = document.getElementById('loaderPercentage');
     
     let progress = 0;
-    const duration = 6500; // 6.5 seconds
-    const increment = duration / 100;
+    const targetDuration = 6500; // 6.5 seconds total
+    const incrementTime = targetDuration / 100; // ~65ms per %
     
     const updateProgress = () => {
         if (progress <= 100) {
@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
             progress++;
             setTimeout(updateProgress, increment);
         } else {
-            // Hide loader after completion
+            // Hide loader ONLY after reaching exactly 100% + short delay
             setTimeout(() => {
                 loader.classList.add('hidden');
-            }, 300);
+            }, 500);
         }
     };
     
