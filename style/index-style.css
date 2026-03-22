@@ -942,11 +942,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     pointer-events: none;
-    z-index: 2;
-    overflow: hidden;
+    z-index: 3;
+    overflow: visible;
 }
 
 .floating-text {
@@ -1006,24 +1006,20 @@
 }
 
 .floating-text:nth-child(1) { 
-    top: -10%; left: -15%; 
+    top: 5%; left: 10%; 
     animation-delay: 0s; 
-    transform-origin: top left;
 }
 .floating-text:nth-child(2) { 
-    top: 25%; right: -20%; 
+    top: 35%; right: -2%; 
     animation-delay: 3s; 
-    transform-origin: top right;
 }
 .floating-text:nth-child(3) { 
-    bottom: -15%; left: -12%; 
+    bottom: 19%; left: 70%; 
     animation-delay: 6s; 
-    transform-origin: bottom left;
 }
 .floating-text:nth-child(4) { 
-    top: 45%; left: -18%; 
+    top: 55%; left: 7%; 
     animation-delay: 9s; 
-    transform-origin: top left;
 }
 
 @keyframes floatDynamic {
