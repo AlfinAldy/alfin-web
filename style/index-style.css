@@ -989,6 +989,18 @@
     border-top: 8px solid rgba(255,255,255,0.95);
 }
 
+.bubble-tail-1 {
+    position: absolute;
+    bottom: -8px;
+    left: 130px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(255,255,255,0.95);
+}
+
+
 @keyframes floatGentle {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     25% { transform: translateY(-8px) rotate(1deg); }
@@ -1008,7 +1020,7 @@
 }
 
 .floating-text:nth-child(1) { 
-    top: 5%; left: 10%; 
+    top: 5%; left: -10%; 
     animation-delay: 0s; 
 }
 .floating-text:nth-child(2) { 
