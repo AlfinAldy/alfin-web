@@ -951,18 +951,63 @@
 
 .floating-text {
     position: absolute;
-    color: rgba(93, 134, 108, 0.9);
-    font-family: var(--font-primary);
-    font-weight: 700;
-    font-size: clamp(1rem, 3vw, 1.8rem);
-    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
     pointer-events: none;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: floatDynamic 8s ease-in-out infinite;
-    white-space: nowrap;
-    will-change: transform, opacity;
+    opacity: 1;
+    transform: translateY(0);
+    animation: floatGentle 12s ease-in-out infinite;
+    will-change: transform;
 }
+
+.chat-bubble {
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 12px 20px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+    color: var(--font-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    animation: bubblePulse 3s ease-in-out infinite alternate;
+    max-width: 200px;
+}
+
+.bubble-tail {
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(255,255,255,0.95);
+}
+
+@keyframes floatGentle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(1deg); }
+    50% { transform: translateY(-4px) rotate(-1deg); }
+    75% { transform: translateY(-12px) rotate(0.5deg); }
+}
+
+@keyframes bubblePulse {
+    0% { 
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    100% { 
+        transform: scale(1.02) rotate(1deg);
+        box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    }
+}
+
+.floating-text:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+.floating-text:nth-child(2) { top: 45%; right: 12%; animation-delay: 3s; }
+.floating-text:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 6s; }
+.floating-text:nth-child(4) { top: 35%; left: 6%; animation-delay: 9s; }
 
 .floating-text:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
 .floating-text:nth-child(2) { top: 45%; right: 12%; animation-delay: 2s; }
@@ -983,9 +1028,16 @@
     }
 }
 
-[data-theme="dark"] .floating-text {
+[data-theme="dark"] .chat-bubble {
+    background: rgba(26, 26, 46, 0.95);
     color: #00ff88;
-    text-shadow: 0 0 25px rgba(0, 255, 136, 0.9);
+    border-color: rgba(0, 255, 136, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+[data-theme="dark"] .bubble-tail {
+    border-top-color: rgba(26, 26, 46, 0.95);
 }
 
 .hero-picture:hover .floating-text {
