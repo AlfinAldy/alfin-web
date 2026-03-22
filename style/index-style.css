@@ -927,9 +927,96 @@
 /* Hero Picture */
 .hero-picture {
     flex: 1;
+    position: relative;
     display: flex;
     justify-content: center;
     animation: slideInRight 0.8s ease-out;
+}
+
+.hero-img {
+    position: relative;
+    z-index: 1;
+}
+
+.floating-text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.floating-text {
+    position: absolute;
+    color: rgba(93, 134, 108, 0.9);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: floatDynamic 8s ease-in-out infinite;
+    white-space: nowrap;
+    will-change: transform, opacity;
+}
+
+.floating-text:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+.floating-text:nth-child(2) { top: 45%; right: 12%; animation-delay: 2s; }
+.floating-text:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s; }
+.floating-text:nth-child(4) { top: 35%; left: 6%; animation-delay: 6s; }
+
+@keyframes floatDynamic {
+    0%, 100% { 
+        opacity: 0; 
+        transform: translateY(50px) scale(0.9); 
+    }
+    12%, 88% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+    50% { 
+        transform: translateY(-15px) scale(1.05); 
+    }
+}
+
+[data-theme="dark"] .floating-text {
+    color: #00ff88;
+    text-shadow: 0 0 25px rgba(0, 255, 136, 0.9);
+}
+
+.hero-picture:hover .floating-text {
+    animation-play-state: paused;
+}
+
+.hero-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--element-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+    animation: heroParticleFloat 1s ease-out forwards;
+}
+
+@keyframes heroParticleFloat {
+    0% { 
+        opacity: 0.9; 
+        transform: scale(1) translate(0, 0); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0) translateY(-30px); 
+    }
+}
+
+[data-theme="dark"] .hero-particle {
+    background: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
 }
 
 .hero-picture img {

@@ -397,6 +397,63 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Dynamic floating text on hero picture
+document.addEventListener('DOMContentLoaded', function() {
+    const heroPicture = document.querySelector('.hero-picture');
+    const floatingTexts = document.querySelectorAll('.floating-text');
+    const phrases = ["Thr nya mas", "i love sleep", "cat lovers", 'i love "E"'];
+    
+    let currentIndex = 0;
+    
+    // Mouse particles over hero picture
+    heroPicture.addEventListener('mousemove', function(e) {
+        const rect = heroPicture.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        if (Math.random() > 0.7) { // 30% chance
+            const particle = document.createElement('div');
+            particle.className = 'hero-particle';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            heroPicture.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 1000);
+        }
+    });
+    
+    // Typewriter on hover
+    heroPicture.addEventListener('mouseenter', function() {
+        const activeText = floatingTexts[currentIndex];
+        const phrase = phrases[currentIndex];
+        activeText.textContent = '';
+        
+        let i = 0;
+        const typeInterval = setInterval(() => {
+            if (i < phrase.length) {
+                activeText.textContent += phrase[i];
+                i++;
+            } else {
+                clearInterval(typeInterval);
+            }
+        }, 80);
+    });
+    
+    // Rotate active text every 8s
+    setInterval(() => {
+        floatingTexts.forEach(text => {
+            text.style.animation = 'none';
+            text.style.opacity = '0';
+        });
+        
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % phrases.length;
+            const activeText = floatingTexts[currentIndex];
+            activeText.style.animation = `floatDynamic 8s ease-in-out infinite`;
+        }, 300);
+    }, 8000);
+});
+
 // contact form animation
 document.addEventListener('DOMContentLoaded', function() {
     const nameInput = document.getElementById('name');
