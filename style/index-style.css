@@ -1032,7 +1032,7 @@
     animation-delay: 6s; 
 }
 .floating-text:nth-child(4) { 
-    top: 55%; left: 7%; 
+    top: 55%; left: -10%; 
     animation-delay: 9s; 
 }
 
