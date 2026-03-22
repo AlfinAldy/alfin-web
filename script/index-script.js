@@ -1,5 +1,29 @@
-// cv download button animation
+// Loader with percentage animation (5-7 seconds)
 document.addEventListener('DOMContentLoaded', function() {
+    const loader = document.getElementById('loader');
+    const percentageEl = document.getElementById('loaderPercentage');
+    
+    let progress = 0;
+    const duration = 6500; // 6.5 seconds
+    const increment = duration / 100;
+    
+    const updateProgress = () => {
+        if (progress <= 100) {
+            percentageEl.textContent = progress + '%';
+            progress++;
+            setTimeout(updateProgress, increment);
+        } else {
+            // Hide loader after completion
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 300);
+        }
+    };
+    
+    // Start after 500ms delay
+    setTimeout(updateProgress, 500);
+
+// cv download button animation
     const cvDownloadBtn = document.getElementById('cvDownloadBtn');
     
     if (cvDownloadBtn) {
