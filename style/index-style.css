@@ -1139,6 +1139,30 @@
     .hero-picture img {
         max-width: 300px;
     }
+
+    .floating-text-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .floating-text:nth-child(1) { 
+        top: 5%; left: 5%; 
+    }
+    .floating-text:nth-child(2) { 
+        top: 30%; right: 5%; 
+    }
+    .floating-text:nth-child(3) { 
+        bottom: 5%; left: 5%; 
+    }
+    .floating-text:nth-child(4) { 
+        top: 50%; left: 5%; 
+    }
+
+    .chat-bubble {
+        font-size: 1rem;
+        max-width: 150px;
+        padding: 10px 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1156,6 +1180,30 @@
 
     .hero-picture img {
         max-width: 250px;
+    }
+
+    .floating-text-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .floating-text:nth-child(1) { 
+        top: 2%; left: 2%; 
+    }
+    .floating-text:nth-child(2) { 
+        top: 25%; right: 2%; 
+    }
+    .floating-text:nth-child(3) { 
+        bottom: 2%; left: 2%; 
+    }
+    .floating-text:nth-child(4) { 
+        top: 45%; left: 2%; 
+    }
+
+    .chat-bubble {
+        font-size: 0.85rem;
+        max-width: 120px;
+        padding: 8px 12px;
     }
 }
 
