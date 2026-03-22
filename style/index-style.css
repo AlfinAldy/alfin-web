@@ -935,7 +935,7 @@
 
 .hero-img {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .floating-text-container {
@@ -956,6 +956,7 @@
     transform: translateY(0);
     animation: floatGentle 12s ease-in-out infinite;
     will-change: transform;
+    z-index: 0;
 }
 
 .chat-bubble {
@@ -1004,15 +1005,26 @@
     }
 }
 
-.floating-text:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
-.floating-text:nth-child(2) { top: 45%; right: 12%; animation-delay: 3s; }
-.floating-text:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 6s; }
-.floating-text:nth-child(4) { top: 35%; left: 6%; animation-delay: 9s; }
-
-.floating-text:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
-.floating-text:nth-child(2) { top: 45%; right: 12%; animation-delay: 2s; }
-.floating-text:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s; }
-.floating-text:nth-child(4) { top: 35%; left: 6%; animation-delay: 6s; }
+.floating-text:nth-child(1) { 
+    top: -10%; left: -15%; 
+    animation-delay: 0s; 
+    transform-origin: top left;
+}
+.floating-text:nth-child(2) { 
+    top: 25%; right: -20%; 
+    animation-delay: 3s; 
+    transform-origin: top right;
+}
+.floating-text:nth-child(3) { 
+    bottom: -15%; left: -12%; 
+    animation-delay: 6s; 
+    transform-origin: bottom left;
+}
+.floating-text:nth-child(4) { 
+    top: 45%; left: -18%; 
+    animation-delay: 9s; 
+    transform-origin: top left;
+}
 
 @keyframes floatDynamic {
     0%, 100% { 
