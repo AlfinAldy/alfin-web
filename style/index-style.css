@@ -79,25 +79,8 @@
 
 .loader-text {
     font-family: var(--font-logo);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-#loaderPercentage {
-    font-family: var(--font-primary);
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 1.5rem;
     color: var(--font-color);
-    text-shadow: 0 0 20px var(--font-color);
-    animation: pulseLarge 2s ease-in-out infinite;
-    min-width: 80px;
-    text-align: center;
-}
-
-.logo-text {
-    font-size: 1.8rem;
     animation: loaderPulse 1.5s ease-in-out infinite;
 }
 
@@ -110,16 +93,7 @@
     }
 }
 
-@keyframes pulseLarge {
-    0%, 100% {
-        transform: scale(1);
-        text-shadow: 0 0 20px var(--font-color);
-    }
-    50% {
-        transform: scale(1.1);
-        text-shadow: 0 0 30px var(--font-color), 0 0 40px var(--font-color);
-    }
-}
+
 
 /* custom cursor following */
 .cursor-follower {
