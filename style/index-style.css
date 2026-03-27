@@ -944,8 +944,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 110%;
-    height: 110%;
+    width: 100% !important;
+    height: 100% !important;
     pointer-events: none;
     z-index: 3;
     overflow: visible;
@@ -1039,7 +1039,7 @@
 @keyframes floatDynamic {
     0%, 100% { 
         opacity: 0; 
-        transform: translateY(50px) scale(0.9); 
+        transform: translateY(150px) scale(0.9); 
     }
     12%, 88% { 
         opacity: 1; 
@@ -1169,13 +1169,20 @@
         bottom: 5%; left: 5%; 
     }
     .floating-text:nth-child(4) { 
-        top: 50%; left: 5%; 
+        top: 55%; left: 5%; 
     }
 
     .chat-bubble {
         font-size: 1rem;
         max-width: 150px;
         padding: 10px 16px;
+    }
+
+    @keyframes floatGentle {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-4px) rotate(0.5deg); }
+        50% { transform: translateY(-2px) rotate(-0.5deg); }
+        75% { transform: translateY(-6px) rotate(0.3deg); }
     }
 }
 
@@ -1205,18 +1212,18 @@
         top: 2%; left: 2%; 
     }
     .floating-text:nth-child(2) { 
-        top: 25%; right: 2%; 
+        top: 28%; right: 2%; 
     }
     .floating-text:nth-child(3) { 
         bottom: 2%; left: 2%; 
     }
     .floating-text:nth-child(4) { 
-        top: 45%; left: 2%; 
+        top: 52%; left: 2%; 
     }
 
     .chat-bubble {
         font-size: 0.85rem;
-        max-width: 120px;
+        max-width: 90vw;
         padding: 8px 12px;
     }
 }
